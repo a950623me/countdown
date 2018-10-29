@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>倒计时插件</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script type="text/javascript" src="js/ajax.js" ></script>
+	<!-- <script type="text/javascript" src="js/index.js" ></script> -->
+	<script src="js/time.js"></script>
+</head>
+<body>
+	<div class="centerBody">
+		<div class="head_time">
+			<div class="time_data" style="font-size: 40px;color: #ff5507;">
+				<span>距离</span>
+				<span class="furturetime">2015年6月4日</span>
+			</div>
+			<div class="time_data time2 clearfix">
+				<img src="images/font.png" style="display: block;float: left;"/>
+				<span class="time" id="days"></span>
+			    <span class="timefont">天</span>
+			</div>
+		</div>
+		<div class="head_time clearfix">
+				<img src="images/timefont.png" class="img_time"/>
+				<div class="time_data clearfix">
+					<span class="time" id="year"></span>
+					<span class="font">年</span>
+					<span class="time" id="months"></span>
+					<span class="font">月</span>
+					<span class="time" id="day"></span>
+					<span class="font">日</span>
+					<span class="time" id="hour"></span>
+					<span class="font">时</span>
+					<span class="time" id="minute"></span>
+					<span class="font">分</span>
+					<span class="time" id="second"></span>
+					<span class="font">秒</span>
+				</div>
+		</div>
+	</div>
+	<script>
+        window.onload = function(){
+			 // 获取本机当前时间
+			 var mydate = new Date();
+		//  console.log(mydate.getFullYear(), parseInt(mydate.getMonth())+1, mydate.getDate(), mydate.getHours(), mydate.getMinutes(), mydate.getSeconds());
+			
+			var futureDate = eval(Date.UTC(2020, 10, 30, 12, 0, 0));
+		//  var nowDate = eval(Date.UTC(2013, 11, 15, 16, 36, 52));
+			var nowDate = eval(Date.UTC(mydate.getFullYear(), parseInt(mydate.getMonth())+1, mydate.getDate(), mydate.getHours(), mydate.getMinutes(), mydate.getSeconds()));
+			var obj = {
+				sec: document.getElementById("second"),
+				minute: document.getElementById("minute"),
+				hour: document.getElementById("hour"),
+				day: document.getElementById("day"),
+				month: document.getElementById("months"),
+				year: document.getElementById("year")
+			}
+			fnTimeCountDown(futureDate, obj,nowDate, function () {
+		//      console.log('时间到了！');
+			});
+		}
+	</script>
+</body>
+</html>
